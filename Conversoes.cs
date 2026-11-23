@@ -13,13 +13,22 @@ namespace Calculos
      internal static class Conversoes
     {
         /// <summary>
-        /// Tipo de Conversão a Efetuar.
+        /// Tipo de Conversão de Temperatura a Efetuar.
         /// </summary>
         public enum ConversaoTemperatura
         {
             Nulo = 0,
             CelsiusFahrenheit,
             FahrenheitCelsius
+        }
+        /// <summary>
+        /// Tipo de Conversão de Distâncias a Efetuar.
+        /// </summary>
+        public enum ConversaoDistancia
+        {
+            Nulo = 0,
+            MetrosMilhas,
+            MilhasMetros
         }
         /// <summary>
         /// Conversão de temperaturas.
@@ -40,5 +49,27 @@ namespace Calculos
 
             return -1;
         }
+
+        
+        /// <summary>
+        /// Conversão de distâncias.
+        /// </summary>
+        /// <param name="conversao">A conversão a efetuar.</param>
+        /// <param name="distancia">A distância a converter</param>
+        /// <returns>Retorna o resultado da conversão da distância.</returns>
+        public static double ConverterDistancias(ConversaoDistancia conversao, double distancia)
+        {
+            if (conversao == ConversaoDistancia.MetrosMilhas)
+            {
+                return distancia * 0.0006213712;
+            }
+            else if (conversao == ConversaoDistancia.MilhasMetros)
+            {
+                return distancia * 1609.344;
+            }
+
+            return -1;
+        }
+
     }
 }
